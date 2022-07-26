@@ -13,6 +13,10 @@ function Posts({ posts }) {
           posts.map((post) => (
             <Post
               key={post.id}
+              id={post.id}
+              category={post.category}
+              title={post.title}
+              excerpt={post.excerpt}
             />
           ))
         }
