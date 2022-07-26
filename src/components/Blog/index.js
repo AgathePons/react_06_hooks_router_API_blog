@@ -16,12 +16,24 @@ class Blog extends React.Component {
     this.state = {
       modeZen: false,
     };
+
+    this.handleButtonZenChange = this.handleButtonZenChange.bind(this);
+  }
+
+  handleButtonZenChange() {
+    const { modeZen } = this.state;
+    this.setState({ modeZen: !modeZen });
   }
 
   render() {
+    const { modeZen } = this.state;
     return (
       <div className="blog">
-        <Header categories={categoriesData} />
+        <Header
+          categories={categoriesData}
+          buttonTextContent={modeZen ? 'Désactiver le mode zen' : 'Activer le mode zen'}
+          onButtonZenChange={this.handleButtonZenChange}
+        />
         <Posts posts={postsData} />
         <Footer />
       </div>
