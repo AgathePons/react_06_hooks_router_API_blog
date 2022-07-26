@@ -9,18 +9,18 @@ import postsData from 'src/data/posts';
 import './styles.scss';
 
 // == Composant
-const Blog = () => {
+function Blog() {
   console.log(categoriesData);
   console.log(postsData);
 
   return (
     <div className="blog">
-      <Header />
-      <Posts />
+      <Header categories={categoriesData} />
+      <Posts posts={postsData} />
       <Footer />
     </div>
   );
-};
+}
 
 // == Export
 export default Blog;
