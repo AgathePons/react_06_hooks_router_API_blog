@@ -1,3 +1,4 @@
+import React from 'react';
 // Composants
 import Header from 'src/components/Header';
 import Posts from 'src/components/Posts';
@@ -9,17 +10,23 @@ import postsData from 'src/data/posts';
 import './styles.scss';
 
 // == Composant
-function Blog() {
-  console.log(categoriesData);
-  console.log(postsData);
+class Blog extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modeZen: false,
+    };
+  }
 
-  return (
-    <div className="blog">
-      <Header categories={categoriesData} />
-      <Posts posts={postsData} />
-      <Footer />
-    </div>
-  );
+  render() {
+    return (
+      <div className="blog">
+        <Header categories={categoriesData} />
+        <Posts posts={postsData} />
+        <Footer />
+      </div>
+    );
+  }
 }
 
 // == Export
