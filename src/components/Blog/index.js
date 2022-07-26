@@ -28,7 +28,7 @@ class Blog extends React.Component {
   render() {
     const { modeZen } = this.state;
     return (
-      <div className="blog">
+      <div className={modeZen ? 'blog blog--zen' : 'blog'}>
         <Header
           categories={categoriesData}
           buttonTextContent={modeZen ? 'Désactiver le mode zen' : 'Activer le mode zen'}
