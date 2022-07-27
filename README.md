@@ -5,6 +5,7 @@ Little React blog
 ## Notions :
 
 Hooks
+Higher order component
 React router
 Axios
 
