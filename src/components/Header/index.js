@@ -11,7 +11,7 @@ function Header({ categories, buttonTextContent, onButtonZenChange }) {
           categories.map((category) => (
             <a
               className={category.route === '/' ? 'menu-link menu-link--selected' : 'menu-link'}
-              href=""
+              href={category.route}
               key={category.route}
             >
               {category.label}
