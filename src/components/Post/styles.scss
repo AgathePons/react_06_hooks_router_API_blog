@@ -37,3 +37,10 @@
     color: vars.$post-text-color;
   }
 }
+
+.posts--zen .post {
+  width: 100%;
+  .post-title {
+    font-size: 1.8em;
+  }
+}

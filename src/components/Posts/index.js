@@ -4,9 +4,9 @@ import Post from 'src/components/Post';
 
 import './styles.scss';
 
-function Posts({ posts }) {
+function Posts({ posts, isZenMode }) {
   return (
-    <main className="posts">
+    <main className={isZenMode ? 'posts posts--zen' : 'posts'}>
       <h1 className="posts-title">Dev Of Thrones</h1>
       <div className="posts-list">
         {
@@ -31,6 +31,7 @@ Posts.propTypes = {
       excerpt: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
+  isZenMode: PropTypes.bool.isRequired,
 };
 
 export default Posts;

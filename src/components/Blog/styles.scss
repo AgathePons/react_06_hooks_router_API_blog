@@ -4,14 +4,4 @@
   font-family: vars.$global-font;
   font-weight: vars.$global-font-weight;
   background-color: vars.$light-color;
-
-  &--zen {
-    .posts {
-      .posts-list {
-        .post {
-          width: 100%;
-        }
-      }
-    }
-  }
 }

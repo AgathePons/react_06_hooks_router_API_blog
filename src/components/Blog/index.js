@@ -34,7 +34,7 @@ class Blog extends React.Component {
           buttonTextContent={modeZen ? 'Désactiver le mode zen' : 'Activer le mode zen'}
           onButtonZenChange={this.handleButtonZenChange}
         />
-        <Posts posts={postsData} />
+        <Posts posts={postsData} isZenMode={modeZen} />
         <Footer />
       </div>
     );
