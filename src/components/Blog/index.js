@@ -14,27 +14,27 @@ class Blog extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modeZen: false,
+      isZenMode: false,
     };
 
     this.handleButtonZenChange = this.handleButtonZenChange.bind(this);
   }
 
   handleButtonZenChange() {
-    const { modeZen } = this.state;
-    this.setState({ modeZen: !modeZen });
+    const { isZenMode } = this.state;
+    this.setState({ isZenMode: !isZenMode });
   }
 
   render() {
-    const { modeZen } = this.state;
+    const { isZenMode } = this.state;
     return (
-      <div className={modeZen ? 'blog blog--zen' : 'blog'}>
+      <div className="blog">
         <Header
           categories={categoriesData}
-          buttonTextContent={modeZen ? 'Désactiver le mode zen' : 'Activer le mode zen'}
+          isZenMode={isZenMode}
           onButtonZenChange={this.handleButtonZenChange}
         />
-        <Posts posts={postsData} isZenMode={modeZen} />
+        <Posts posts={postsData} isZenMode={isZenMode} />
         <Footer />
       </div>
     );

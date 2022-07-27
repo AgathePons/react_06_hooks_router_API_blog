@@ -1,6 +1,12 @@
 # Blog React
 
-WIP
+Little React blog
+
+## Notions :
+
+Hooks
+React router
+Axios
 
 <details>
   <summary>Mode zen : Off</summary>

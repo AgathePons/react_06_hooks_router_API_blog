@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // == Composant
-function Header({ categories, buttonTextContent, onButtonZenChange }) {
+function Header({ categories, isZenMode, onButtonZenChange }) {
   return (
     <header className="menu">
       <nav>
@@ -23,7 +23,7 @@ function Header({ categories, buttonTextContent, onButtonZenChange }) {
           type="button"
           onClick={onButtonZenChange}
         >
-          {buttonTextContent}
+          {isZenMode ? 'Désactiver le mode zen' : 'Activer le mode zen'}
         </button>
       </nav>
     </header>
@@ -37,7 +37,7 @@ Header.propTypes = {
       label: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  buttonTextContent: PropTypes.string.isRequired,
+  isZenMode: PropTypes.bool.isRequired,
   onButtonZenChange: PropTypes.func.isRequired,
 };
 
