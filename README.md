@@ -4,23 +4,25 @@ Little React blog
 
 ## Notions :
 
-Hooks
+### Hooks
 
 - useState()
 - useParams()
 
-React router
+### React router
 
 - `<BrowserRouter></BrowserRouter>`
 - `<Routes></Routes>`
 - `<Route path={} element={(...JSX...)} />`
+- `<Route path="*" element={...404 component ...} />`
 - `<Link to={...url...}></Link>`
 - `<NavLink to={...url...} className={(props) => (...function...)}></NavLink>`
 
-Higher order component  
+### Higher order component
   
-Pure function  
-Axios  
+### Pure function
+
+### Axios
 
 <details>
   <summary>Mode zen : Off</summary>

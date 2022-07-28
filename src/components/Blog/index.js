@@ -4,6 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import Header from 'src/components/Header';
 import Posts from 'src/components/Posts';
 import Footer from 'src/components/Footer';
+import NotFound from 'src/components/NotFound';
+import Spinner from 'src/components/Spinner';
 
 // data, styles et utilitaires
 import categoriesData from 'src/data/categories';
@@ -28,9 +30,19 @@ function Blog() {
   // so useState return an array with the current value of the state variable,
   // and the function to modify it
   const [isZenMode, setIsZenMode] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [isloading, setIsLoading] = useState(false);
 
   const handleZenButtonClick = () => {
     setIsZenMode(!isZenMode);
+  };
+
+  const handleLoadPosts = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setPosts(postsData);
+    }, 1000);
   };
 
   return (
@@ -40,6 +52,13 @@ function Blog() {
         isZenMode={isZenMode}
         onButtonZenChange={handleZenButtonClick}
       />
+      <button
+        type="button"
+        onClick={handleLoadPosts}
+      >
+        Charger les posts
+      </button>
+      {isloading && <Spinner />}
       <Routes>
         {
           categoriesData.map((category) => (
@@ -49,12 +68,13 @@ function Blog() {
               element={(
                 <Posts
                   isZenMode={isZenMode}
-                  posts={getPostsByCategory(postsData, category.label)}
+                  posts={getPostsByCategory(posts, category.label)}
                 />
               )}
             />
           ))
         }
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer />
