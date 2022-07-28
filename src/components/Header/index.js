@@ -1,5 +1,6 @@
 // == Import
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 
 // == Composant
@@ -9,13 +10,13 @@ function Header({ categories, isZenMode, onButtonZenChange }) {
       <nav>
         {
           categories.map((category) => (
-            <a
+            <Link
               className={category.route === '/' ? 'menu-link menu-link--selected' : 'menu-link'}
-              href={category.route}
+              to={category.route}
               key={category.route}
             >
               {category.label}
-            </a>
+            </Link>
           ))
         }
         <button

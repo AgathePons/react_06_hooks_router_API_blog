@@ -5,9 +5,14 @@ Little React blog
 ## Notions :
 
 Hooks
-Higher order component
-React router
-Axios
+
+- useState()
+- useParams()
+
+Higher order component  
+React router  
+Pure function  
+Axios  
 
 <details>
   <summary>Mode zen : Off</summary>
