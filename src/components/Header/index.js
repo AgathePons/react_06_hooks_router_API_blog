@@ -1,6 +1,6 @@
 // == Import
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './styles.scss';
 
 // == Composant
@@ -10,13 +10,15 @@ function Header({ categories, isZenMode, onButtonZenChange }) {
       <nav>
         {
           categories.map((category) => (
-            <Link
-              className={category.route === '/' ? 'menu-link menu-link--selected' : 'menu-link'}
+            // we can use Link or NavLink, the difference between these 2 components
+            // it that NavLink className attributes awaits a function
+            <NavLink
+              className={({ isActive }) => (isActive ? 'menu-link menu-link--selected' : 'menu-link')}
               to={category.route}
               key={category.route}
             >
               {category.label}
-            </Link>
+            </NavLink>
           ))
         }
         <button

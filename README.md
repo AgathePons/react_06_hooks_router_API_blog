@@ -9,8 +9,16 @@ Hooks
 - useState()
 - useParams()
 
+React router
+
+- `<BrowserRouter></BrowserRouter>`
+- `<Routes></Routes>`
+- `<Route path={} element={(...JSX...)} />`
+- `<Link to={...url...}></Link>`
+- `<NavLink to={...url...} className={(props) => (...function...)}></NavLink>`
+
 Higher order component  
-React router  
+  
 Pure function  
 Axios  
 
