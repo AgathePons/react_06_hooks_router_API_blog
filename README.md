@@ -1,15 +1,13 @@
-# Blog React
+# Blog React, notions :
 
 Little React blog
 
-## Notions :
+## Hooks
 
-### Hooks
+- `useState()`
+- `useParams()`
 
-- useState()
-- useParams()
-
-### React router
+## React router
 
 - `<BrowserRouter></BrowserRouter>`
 - `<Routes></Routes>`
@@ -18,11 +16,17 @@ Little React blog
 - `<Link to={...url...}></Link>`
 - `<NavLink to={...url...} className={(props) => (...function...)}></NavLink>`
 
-### Higher order component
+## Higher order component
   
-### Pure function
+## Pure function
 
-### Axios
+## Remind promise / callback / async await
+
+- [Callback function](https://developer.mozilla.org/fr/docs/Glossary/Callback_function)
+- Promise --> [Using promises](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Using_promises), [Promise](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [Async-Await](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/async_function)
+
+## Axios
 
 Get promise and manipulate it to fetch the API.
 
@@ -63,6 +67,7 @@ const response = await Promise.all([
 ]);
 ```
 
+-------------------
 
 <details>
   <summary>Mode zen : Off</summary>
