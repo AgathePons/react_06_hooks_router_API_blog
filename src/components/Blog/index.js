@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 // Composants
 import Header from 'src/components/Header';
 import Posts from 'src/components/Posts';
 import Footer from 'src/components/Footer';
 import NotFound from 'src/components/NotFound';
 import Spinner from 'src/components/Spinner';
+import SinglePost from '../SinglePost';
 
 // data, styles et utilitaires
-import categoriesData from 'src/data/categories';
-import postsData from 'src/data/posts';
 import './styles.scss';
 
 // this function has not to be in the component, because it is a pure function
@@ -31,24 +31,36 @@ function Blog() {
   // and the function to modify it
   const [isZenMode, setIsZenMode] = useState(false);
   const [posts, setPosts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [isloading, setIsLoading] = useState(false);
 
   const handleZenButtonClick = () => {
     setIsZenMode(!isZenMode);
   };
 
-  const handleLoadPosts = () => {
+  // we could have written it with promise :
+  // promise.then((response) => {...}).catch((error) => {...}).finally(() => {...});
+  const handleLoadPosts = async () => {
     setIsLoading(true);
-    setTimeout(() => {
+    try {
+      const response = await Promise.all([
+        axios.get('https://oclock-open-apis.vercel.app/api/blog/posts'),
+        axios.get('https://oclock-open-apis.vercel.app/api/blog/categories'),
+      ]);
       setIsLoading(false);
-      setPosts(postsData);
-    }, 1000);
+      setCategories(response[1].data);
+      setPosts(response[0].data);
+    }
+    catch (error) {
+      console.error(error);
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className="blog">
       <Header
-        categories={categoriesData}
+        categories={categories}
         isZenMode={isZenMode}
         onButtonZenChange={handleZenButtonClick}
       />
@@ -58,10 +70,13 @@ function Blog() {
       >
         Charger les posts
       </button>
+
       {isloading && <Spinner />}
-      <Routes>
-        {
-          categoriesData.map((category) => (
+
+      {!isloading && (
+        <Routes>
+          {
+          categories.map((category) => (
             <Route
               key={category.route}
               path={category.route}
@@ -74,8 +89,15 @@ function Blog() {
             />
           ))
         }
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          <Route
+            path="/post/:slug"
+            element={(
+              <SinglePost posts={posts} />
+          )}
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      )}
 
       <Footer />
     </div>

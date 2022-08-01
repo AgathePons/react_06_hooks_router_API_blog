@@ -1,10 +1,12 @@
 // == Import
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import Post from 'src/components/Post';
 
 import './styles.scss';
 
 function Posts({ posts, isZenMode }) {
+  const navigate = useNavigate();
   return (
     <main className={isZenMode ? 'posts posts--zen' : 'posts'}>
       <h1 className="posts-title">Dev Of Thrones</h1>
@@ -14,6 +16,9 @@ function Posts({ posts, isZenMode }) {
             <Post
               key={post.id}
               {...post} // spread post object
+              onPostClick={() => {
+                navigate(`/post/${post.slug}`);
+              }}
             />
           ))
         }
