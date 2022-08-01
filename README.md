@@ -24,6 +24,46 @@ Little React blog
 
 ### Axios
 
+Get promise and manipulate it to fetch the API.
+
+- With callback :
+
+```js
+const promise = axios.get('https://oclock-open-apis.vercel.app/api/blog/posts');
+
+const result = promise
+  .then((response) => {...})
+  .catch((error) => {...})
+  .finally(() => {...});
+```
+
+- With async/await :
+
+```js
+const handleLoadPosts = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get('https://oclock-open-apis.vercel.app/api/blog/posts');
+      setIsLoading(false);
+      setPosts(response.data);
+    }
+    catch (error) {
+      console.error(error);
+      setIsLoading(false);
+    }
+  };
+```
+
+- Handle multi fetch with `Promise.all()`
+
+```js
+const response = await Promise.all([
+  axios.get('https://oclock-open-apis.vercel.app/api/blog/posts'),
+  axios.get('https://oclock-open-apis.vercel.app/api/blog/categories'),
+]);
+```
+
+
 <details>
   <summary>Mode zen : Off</summary>
 
