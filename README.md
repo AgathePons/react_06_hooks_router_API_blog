@@ -39,12 +39,13 @@ function myComponent() {
 
 ## React router
 
-- `<BrowserRouter></BrowserRouter>`
-- `<Routes></Routes>`
-- `<Route path={} element={(...JSX...)} />`
-- `<Route path="*" element={...404 component ...} />`
-- `<Link to={...url...}></Link>`
-- `<NavLink to={...url...} className={(props) => (...function...)}></NavLink>`
+- Englobe the root component (`Root`, `App`, `Blog`...) in `<BrowserRouter></BrowserRouter>`
+- Englobe the routes list in `<Routes></Routes>`
+- Define a route : `<Route path={'myRoute'} element={(...JSX...)} />`
+- Define a 404 : `<Route path="*" element={...404 component ...} />` (`*` is used for "all", and it is placed after all other routes, so if no route matches, it comes to  the last "all other routes").
+- Define a route with parameter : `<Route path="/:myParams" element={(...JSX...)} />`
+- Define links to navigate to another page (render a `<a>` element) : `<Link to={...url...}></Link>`
+- Define navigation link that is special kind of link that allows to know if it is active or not : `<NavLink to={...url...} className={(props) => (...function...)}></NavLink>`
 
 ## Remind promise / callback / async await
 
