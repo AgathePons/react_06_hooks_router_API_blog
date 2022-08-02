@@ -9,6 +9,11 @@ A pure function has the following properties:
 - the return values are identical for identical arguments
 - the function application has no **side effects**
 
+## Higher order component
+
+A higher order component (HOC) is a function that takes a component and returns a new component.
+See the [Higher-Order Component](https://fr.reactjs.org/docs/higher-order-components.html#gatsby-focus-wrapper) article in the React doc.
+
 ## Hooks
 
 - `useState()` : return the local state value and a function to update it
@@ -40,8 +45,6 @@ function myComponent() {
 - `<Route path="*" element={...404 component ...} />`
 - `<Link to={...url...}></Link>`
 - `<NavLink to={...url...} className={(props) => (...function...)}></NavLink>`
-
-## Higher order component
 
 ## Remind promise / callback / async await
 
