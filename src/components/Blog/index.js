@@ -35,10 +35,6 @@ function Blog() {
   const [categories, setCategories] = useState([]);
   const [isloading, setIsLoading] = useState(false);
 
-  const handleZenButtonClick = () => {
-    setIsZenMode(!isZenMode);
-  };
-
   // we could have written it with promise :
   // promise.then((response) => {...}).catch((error) => {...}).finally(() => {...});
   const handleLoadPosts = async () => {
@@ -58,6 +54,14 @@ function Blog() {
     }
   };
 
+  useEffect(() => {
+    handleLoadPosts();
+  }, []);
+
+  const handleZenButtonClick = () => {
+    setIsZenMode(!isZenMode);
+  };
+
   return (
     <div className="blog">
       <Header
@@ -65,12 +69,6 @@ function Blog() {
         isZenMode={isZenMode}
         onButtonZenChange={handleZenButtonClick}
       />
-      <button
-        type="button"
-        onClick={handleLoadPosts}
-      >
-        Charger les posts
-      </button>
 
       {isloading && <Spinner />}
 
