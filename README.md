@@ -1,11 +1,36 @@
-# Blog React, notions :
+# Blog React, notions
 
 Little React blog
 
+## Pure function
+
+A pure function has the following properties:
+
+- the return values are identical for identical arguments
+- the function application has no **side effects**
+
 ## Hooks
 
-- `useState()`
-- `useParams()`
+- `useState()` : return the local state value and a function to update it
+- `useEffect()` : example :
+
+```js
+function myComponent() {
+  const [thing, setThing] = useState('thing');
+  const [otherThing, setotherThing] = useState('otherThing');
+
+  // this effect will be executed after new render
+  useEffect(() => {...});
+  // this effect will be executed only after first render (= componentDidMount)
+  useEffect(() => {...}, []);
+  // this effect will be executed only if thing has changed
+  useEffect(() => {...}, [thing]);
+  // this effect will be executed only if thing OR otherThing has changed
+  useEffect(() => {...}, [thing, otherThing]);
+}
+```
+
+- `useParams()` : React Router specific hook returning an object of key/value of the dynamic params of the current URL
 
 ## React router
 
@@ -17,8 +42,6 @@ Little React blog
 - `<NavLink to={...url...} className={(props) => (...function...)}></NavLink>`
 
 ## Higher order component
-  
-## Pure function
 
 ## Remind promise / callback / async await
 
