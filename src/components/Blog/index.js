@@ -37,7 +37,7 @@ function Blog() {
 
   // we could have written it with promise :
   // promise.then((response) => {...}).catch((error) => {...}).finally(() => {...});
-  const handleLoadPosts = async () => {
+  const handleLoadData = async () => {
     setIsLoading(true);
     try {
       const response = await Promise.all([
@@ -55,7 +55,7 @@ function Blog() {
   };
 
   useEffect(() => {
-    handleLoadPosts();
+    handleLoadData();
   }, []);
 
   const handleZenButtonClick = () => {
