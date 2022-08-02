@@ -90,6 +90,17 @@ const response = await Promise.all([
 ]);
 ```
 
+## Inner HTML with React in JSX : DOMPurify
+
+We can use `dangerouslySetInnerHTML={{__html: 'First &middot; Second'}}` but like it is said, this is dangerous because it exposes users to a **XSS attack** (cross-site scripting).
+
+The npm package **[DOMPurify](https://www.npmjs.com/package/dompurify)** cleans the HTML to insert in the DOM
+
+```js
+import DOMPurify from 'dompurify';
+const cleanHTML = DOMPurify.sanitize(excerpt);
+```
+
 -------------------
 
 <details>

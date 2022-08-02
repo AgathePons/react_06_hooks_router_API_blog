@@ -1,5 +1,6 @@
 // == Import
 import PropTypes from 'prop-types';
+import DOMPurify from 'dompurify';
 import './styles.scss';
 
 function Post({
@@ -8,11 +9,13 @@ function Post({
   title,
   excerpt,
 }) {
+  const cleanHTML = DOMPurify.sanitize(excerpt);
+
   return (
     <article className="post" id={`post-${id}`}>
       <h2 className="post-title">{title}</h2>
       <div className="post-category">{category}</div>
-      <p className="post-excerpt">{excerpt}</p>
+      <p className="post-excerpt" dangerouslySetInnerHTML={{ __html: cleanHTML }} />
     </article>
   );
 }
