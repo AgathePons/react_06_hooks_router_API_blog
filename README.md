@@ -101,6 +101,28 @@ import DOMPurify from 'dompurify';
 const cleanHTML = DOMPurify.sanitize(excerpt);
 ```
 
+It can be configured to choose what HTML is allowed or not
+
+- White list with `ALLOWED_TAGS`
+
+```js
+const configSanitize = {
+    ALLOWED_TAGS: ['em', 'strong'],
+  };
+  const cleanHTML = DOMPurify.sanitize(excerpt, configSanitize);
+```
+
+- Black list with `FORBID_TAGS`
+
+```js
+const configSanitize = {
+    FORBID_TAGS: ['script', 'a', 'img'],
+  };
+  const cleanHTML = DOMPurify.sanitize(excerpt, configSanitize);
+```
+
+See the [complete doc of DOMPurify](https://www.npmjs.com/package/dompurify) for more options.
+
 -------------------
 
 <details>

@@ -9,7 +9,10 @@ function Post({
   title,
   excerpt,
 }) {
-  const cleanHTML = DOMPurify.sanitize(excerpt);
+  const configSanitize = {
+    ALLOWED_TAGS: ['em', 'strong'],
+  };
+  const cleanHTML = DOMPurify.sanitize(excerpt, configSanitize);
 
   return (
     <article className="post" id={`post-${id}`}>
