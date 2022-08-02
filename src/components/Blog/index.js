@@ -94,7 +94,6 @@ function Blog() {
               <SinglePost
                 isZenMode={isZenMode}
                 posts={posts}
-                isLoading={isLoading}
               />
           )}
           />

@@ -3,6 +3,7 @@
 .post {
   width: 100%;
   padding: vars.$gutter;
+  cursor: pointer;
 
   @media (min-width: 600px) {
     width: 50%;
@@ -36,6 +37,12 @@
     font-weight: 300;
     color: vars.$post-text-color;
   }
+}
+
+.post.post--single {
+  width: 100%;
+  text-align: center;
+  cursor: default;
 }
 
 .posts--zen .post {

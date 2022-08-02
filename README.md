@@ -36,6 +36,7 @@ function myComponent() {
 ```
 
 - `useParams()` : React Router specific hook returning an object of key/value of the dynamic params of the current URL
+- `useNavigate()` : React Router specific hook returning a function that lets us navigate programmatically
 
 ## React router
 

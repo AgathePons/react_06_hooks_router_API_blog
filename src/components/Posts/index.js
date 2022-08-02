@@ -34,6 +34,7 @@ Posts.propTypes = {
       category: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       excerpt: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
   isZenMode: PropTypes.bool.isRequired,

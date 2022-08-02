@@ -20,6 +20,8 @@ function SinglePost({ isZenMode, posts }) {
         category={foundPost.category}
         title={foundPost.title}
         excerpt={foundPost.excerpt}
+        content={foundPost.content}
+        isSingle
       />
     </div>
   );
@@ -32,6 +34,7 @@ SinglePost.propTypes = {
       category: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       excerpt: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
   isZenMode: PropTypes.bool.isRequired,
