@@ -8,7 +8,7 @@ import Posts from 'src/components/Posts';
 import Footer from 'src/components/Footer';
 import NotFound from 'src/components/NotFound';
 import Spinner from 'src/components/Spinner';
-import SinglePost from '../SinglePost';
+import SinglePost from 'src/components/SinglePost';
 
 // data, styles et utilitaires
 import './styles.scss';
@@ -33,7 +33,7 @@ function Blog() {
   const [isZenMode, setIsZenMode] = useState(false);
   const [posts, setPosts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // we could have written it with promise :
   // promise.then((response) => {...}).catch((error) => {...}).finally(() => {...});
@@ -70,9 +70,9 @@ function Blog() {
         onButtonZenChange={handleZenButtonClick}
       />
 
-      {isloading && <Spinner />}
+      {isLoading && <Spinner />}
 
-      {!isloading && (
+      {!isLoading && (
         <Routes>
           {
           categories.map((category) => (
@@ -91,7 +91,11 @@ function Blog() {
           <Route
             path="/post/:slug"
             element={(
-              <SinglePost posts={posts} />
+              <SinglePost
+                isZenMode={isZenMode}
+                posts={posts}
+                isLoading={isLoading}
+              />
           )}
           />
           <Route path="*" element={<NotFound />} />

@@ -11,7 +11,7 @@ A pure function has the following properties:
 
 ## Higher order component
 
-A higher order component (HOC) is a function that takes a component and returns a new component.
+A higher order component (HOC) is a function that takes a component and returns a new component.  
 See the [Higher-Order Component](https://fr.reactjs.org/docs/higher-order-components.html#gatsby-focus-wrapper) article in the React doc.
 
 ## Hooks
