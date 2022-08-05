@@ -35,6 +35,8 @@ function myComponent() {
 }
 ```
 
+This array at the end of the hook is called **list of dependencies**, or **tableau de dépendances** in french.
+
 - `useParams()` : React Router specific hook returning an object of key/value of the dynamic params of the current URL
 - `useNavigate()` : React Router specific hook returning a function that lets us navigate programmatically
 
