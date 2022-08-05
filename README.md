@@ -16,8 +16,27 @@ See the [Higher-Order Component](https://fr.reactjs.org/docs/higher-order-compon
 
 ## Hooks
 
-- `useState()` : return the local state value and a function to update it
-- `useEffect()` : example :
+- **`useState()`** : return the local state value and a function to update it.  
+
+We can init a state by setting a name (`myState`), and a function that will allow us to modify this state later (`setMyState`), then we set the initial value.
+
+```js
+const [myState, setMyState] = useState("value of my state");
+```
+
+To modify this state, we can simply write:
+
+```js
+setMyState("new value");
+```
+
+If we need to manipulate the current value of the state to set the new one, for example if we want to increment a value, we have to avoid this: `setMyState(myState + 1)`. Instead, we can pass a function (and take advantages of the **function closure**) like:
+
+```js
+setMyState((oldState) => oldState + 1);
+```
+
+- **`useEffect()`** : example :
 
 ```js
 function myComponent() {
@@ -37,8 +56,22 @@ function myComponent() {
 
 This array at the end of the hook is called **list of dependencies**, or **tableau de dépendances** in french.
 
-- `useParams()` : React Router specific hook returning an object of key/value of the dynamic params of the current URL
-- `useNavigate()` : React Router specific hook returning a function that lets us navigate programmatically
+The **useEffect** hook can return a **clean-up function** that acts like a `componentWillUnmount()`. It can be usefull for example to clear a setInterval and so on.
+
+```js
+useEffect(() => {
+    const intervalId = setInterval(() => {
+      ...do some stuff...
+    }, 50);
+    
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [dependency]);
+```
+
+- **`useParams()`** : React Router specific hook returning an object of key/value of the dynamic params of the current URL
+- **`useNavigate()`** : React Router specific hook returning a function that lets us navigate programmatically
 
 ## React router
 
